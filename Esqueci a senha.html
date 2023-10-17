@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Principal.css"> 
+    <title>Esqueceu a Senha</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Esqueceu a Senha</h1>
+        <p>Por favor, insira seu endereço de e-mail abaixo. Um link para redefinir sua senha será enviado para o seu e-mail.</p>
+        <form action="enviar_email.php" method="post">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Enviar</button>
+        </form>
+        <p><a href="login.html">Voltar para a página de login</a></p>
+    </div>
+</body>
+</html>

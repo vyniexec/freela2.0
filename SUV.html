@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Principal.css">
+    <script src="back_end/processar/processarVeiculo.js" async></script>
+    <title>Locação de Veículos</title>
+</head>
+<body>
+    <header>
+        <h1>Locação de Veículos</h1>
+    </header>
+
+    <div class="container">
+        <h2>Veículos Disponíveis para Locação</h2>
+        <div class="veiculo">
+            <img src="imagens Veiculos\renegade.jpg" alt="SUV">
+            <h3>Jeep</h3>
+            <p>Modelo: Jeep Renegade </p>
+            <p>Preço por Dia: R$ 130,00</p>
+            <button class="alugar" onclick="processarVeiculo('jeep', 'suv', '130,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\creta.jpg" alt="SUV">
+            <h3>Hyundai</h3>
+            <p>Modelo:Hyundai Creta</p>
+            <p>Preço por Dia: R$ 170,00</p>
+            <button class="alugar" onclick="processarVeiculo('creta', 'suv', '170,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\nivus.jpg" alt="SUV">
+            <h3>Volkswagen</h3>
+            <p>Modelo: Volkswagen Nivus </p>
+            <p>Preço por Dia: R$ 160,00</p>
+            <button class="alugar" onclick="processarVeiculo('nivus', 'suv', '160,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\tracker.jpg" alt="SUV">
+            <h3>Chevrolet</h3>
+            <p>Modelo: Chevrolet Tracker </p>
+            <p>Preço por Dia: R$ 180,00</p>
+            <button class="alugar" onclick="processarVeiculo('tracker', 'suv', '180,00')">Alugar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; OuroCar</p>
+    </footer>
+</body>
+</html>

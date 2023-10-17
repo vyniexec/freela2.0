@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Principal.css">
+    <script src="back_end/processar/processarVeiculo.js" async></script>
+    <title>Locação de Veículos</title>
+</head>
+<body>
+    <header>
+        <h1>Locação de Veículos</h1>
+    </header>
+
+    <div class="container">
+        <h2>Veículos Disponíveis para Locação</h2>
+        <div class="veiculo">
+            <img src="imagens Veiculos\march1.jpg" alt="hat">
+            <h3>Toyota</h3>
+            <p>Modelo: Toyota March </p>
+            <p>Preço por Dia: R$ 100,00</p>
+            <button class="alugar" onclick="processarVeiculo('march', 'hat', '100,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\sandero1.jpg" alt="hat">
+            <h3>Renault</h3>
+            <p>Modelo: Renault Sandero </p>
+            <p>Preço por Dia: R$ 120,00</p>
+            <button class="alugar" onclick="processarVeiculo('sandero', 'hat', '120,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\argo.jpg" alt="hat">
+            <h3>Fiat</h3>
+            <p>Modelo: Fiat Argo </p>
+            <p>Preço por Dia: R$ 180,00</p>
+            <button class="alugar" onclick="processarVeiculo('argo', 'hat', '180,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\hb20.jpg" alt="hat">
+            <h3>Hyundai</h3>
+            <p>Modelo: Hyundai HB20 </p>
+            <p>Preço por Dia: R$ 110,00</p>
+            <button class="alugar" onclick="processarVeiculo('HB20', 'hat', '110,00')">Alugar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; OuroCar</p>
+    </footer>
+</body>
+</html>

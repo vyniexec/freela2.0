@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="back_end/login/login.js" async>
+        window.onload = function() {
+        obterDadosDoBanco(); // Chama a função assim que a página é carregada
+        };
+    </script>
+    <link rel="stylesheet" href="Principal.css">
+    <link rel="import" href="Cadastro.html">
+    <link rel="import" href="Esqueci a senha.html">
+    <link rel="import" href="Acessar.html">
+</head>
+<body>
+    <div class="page">
+        <form action="" class="formLogin">
+            <h1>Login</h1>
+            <p>Digite os seus dados de acesso no campo abaixo.</p>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="Digite seu e-mail" autofocus="true" />
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="Digite sua senha" />
+            <p class="link">
+                
+            <a href="Esqueci a senha.html">Esqueci minha senha</a>
+            <p class="link">
+                <a href="Cadastro.html">Cadastre-se</a>
+            </p>
+            <input onclick="validarLogin()" value="Acessar" class="btn"/>
+        </form>
+    </div>
+</body>
+</html>

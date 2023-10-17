@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Principal.css">
+    <script src="back_end/processar/processarVeiculo.js" async></script>
+    <title>Locação de Veículos</title>
+</head>
+<body>
+    <header>
+        <h1>Locação de Veículos</h1>
+    </header>
+
+    <div class="container" action="back_end/processar/processar.php">
+        <h2>Veículos Disponíveis para Locação</h2>
+        <div class="veiculo">
+            <img src="imagens Veiculos\320i.jpg" alt="Esport">
+            <h3 id="bwm">BMW</h3>
+            <p>Modelo: BMW 320i </p>
+            <p>Preço por Dia: R$ 390,00</p>
+            <button class="alugar" onclick="processarVeiculo('bwm', 'esportivo', '390,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\mustang.jpg" alt="Esport">
+            <h3 id="ford">Ford</h3>
+            <p>Modelo: Ford Mustang </p>
+            <p>Preço por Dia: R$ 320,00</p>
+            <button class="alugar" onclick="processarVeiculo('mustang', 'esportivo', '320,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\Dodge.jpg" alt="Esport">
+            <h3 id="dodge">Dodge</h3>
+            <p>Modelo: Dodge Charger </p>
+            <p>Preço por Dia: R$ 400,00</p>
+            <button class="alugar" onclick="processarVeiculo('dodge', 'esportivo', '400,00')">Alugar</button>
+        </div>
+        <div class="veiculo">
+            <img src="imagens Veiculos\camaro.jpg" alt="Esport">
+            <h3 id="chevrolet">Chevrolet</h3>
+            <p>Modelo: Chevrolet Camaro </p>
+            <p>Preço por Dia: R$ 350,00</p>
+            <button class="alugar" onclick="processarVeiculo('camaro', 'esportivo', '350,00')">Alugar</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; OuroCar</p>
+    </footer>
+</body>
+</html>

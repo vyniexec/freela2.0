@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Principal.css">
+    <title>Locação de Veículos</title>
+</head>
+<body>
+    <header>
+        <!-- Logo do OuroCar -->
+        <img src="Logo Ourocar.jpg" alt="OuroCar">
+    </header>
+
+    <div class="container">
+        <h2>Escolha um veículo para locação:</h2>
+        <form action="back_end/processar/processar.php" method="post">
+            <label for="veiculo">Selecione o veículo:</label>
+            <select id="veiculo" name="veiculo" required>
+                <option value="esportivo">Esportivo</option>
+                <option value="hat">Hat</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="van">Van</option>
+            </select>
+
+            <label for="data_inicio">Data de Início:</label>
+            <input type="date" id="data_inicio" name="data_inicio" required>
+
+            <label for="horario_inicio">Horário de Início:</label>
+            <input type="time" id="horario_inicio" name="horario_inicio" required>
+
+            <label for="data_fim">Data de Término:</label>
+            <input type="date" id="data_fim" name="data_fim" required>
+
+            <label for="horario_fim">Horário de Término:</label>
+            <input type="time" id="horario_fim" name="horario_fim" required>
+
+            <button onclick="veiculos()" type="submit">Veículos</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; OuroCar</p>
+    </footer>
+</body>
+</html>
