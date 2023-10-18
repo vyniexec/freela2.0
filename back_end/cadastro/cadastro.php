@@ -34,10 +34,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Associa os parâmetros e executa a consulta
     $sql->bind_param("sssssssss", $nome, $data_nascimento, $endereco, $numEndereco, $cep, $cnh, $email, $telefone, $senha);
     if ($sql->execute() === TRUE) {
-        header("Location: /ourocar/Login.html");
-        exit();
+        //header("Location: /ourocar/Login.html");
+        $msgSuccess = "Cadastro Realizado com sucesso!";
     } else {
-        $message = "Erro ao cadastrar: ";
         echo "Erro ao cadastrar: " . $sql->error;
     }
 
@@ -45,3 +44,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="3; url=../../../ourocar/Login.html"><!-- Aguarda 5 segundos antes de redirecionar a página para o endereço ourocar/Login.php -->
+    <link rel="stylesheet" href="../../Principal.css">
+    <script src="back_end/cadastro/cadastro.js" async></script>
+    <title>Cadastro</title>
+</head>
+
+<header>
+    <!-- Logo do OuroCar -->
+    <a href="Login.html"><img src="../../Logo Ourocar.jpg" alt="OuroCar"></a>
+</header>
+
+<body>
+    <div id="cadastro">
+        <h4>  
+        <?php echo $msgSuccess; ?>
+        </h4>
+    </div>
+
+    <footer>
+        <!-- Rodapé -->
+        <p>&copy; OuroCar</p>
+    </footer>
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Principal.css">
+    <script src="back_end/processar/processarVeiculo.js" async></script>
     <title>Locação de Veículos</title>
 </head>
 <body>
@@ -14,7 +15,8 @@
 
     <div class="container">
         <h2>Escolha um veículo para locação:</h2>
-        <form action="back_end/processar/processar.php" method="post">
+        <!-- <form method="post" onsubmit="return validarFormulario()"> -->
+        <form method="post">
             <label for="veiculo">Selecione o veículo:</label>
             <select id="veiculo" name="veiculo" required>
                 <option value="esportivo">Esportivo</option>
@@ -36,10 +38,9 @@
             <label for="horario_fim">Horário de Término:</label>
             <input type="time" id="horario_fim" name="horario_fim" required>
 
-            <button onclick="veiculos()" type="submit">Veículos</button>
+            <button type="submit" id="submitBtn">Veículos</button>
         </form>
     </div>
-
     <footer>
         <p>&copy; OuroCar</p>
     </footer>
