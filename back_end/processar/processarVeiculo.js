@@ -3,31 +3,33 @@ var hora_inicio;
 var data_termino;
 var hora_termino;
 
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('submitBtn').addEventListener('click', function(event) {
-        event.preventDefault(); // Previne o envio do formulário
-        validarFormulario();
-    });    
-});
-  
-
-function validarFormulario() {
-    acessarVeiculo();
-}
-
-function acessarVeiculo(){
-    var escolhaVeiculo = document.getElementById("veiculo").value;
-    console.log(escolhaVeiculo);
-    data_inicio = document.getElementById("data_inicio").value;
-    hora_inicio = document.getElementById("horario_inicio").value;
-    data_termino = document.getElementById("data_fim").value;
-    hora_termino = document.getElementById("horario_fim").value;
-    console.log("Acessando veiculo...");
-    window.location.href = "/ourocar/"+escolhaVeiculo+".html";
-
-}
-
 function processarVeiculo(){
-    console.log(data_inicio, hora_inicio, data_termino, hora_termino);
+    console.log("processarVeiculo");
+    fetch('back_end/processar/processar.php')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Erro ao obter os dados do servidor');
+            }
+            return response.json();
+        })
+        .then(dados => {
+            console.log(dados);
+            if (dados != null) {
+                for (var i = 0; i < dados.length; i++) {
+                    tamanho = dados.length;
+                    data_inicio = dados[i].data_inicio;
+                    hora_inicio = dados[i].hora_inicio;
+                    data_termino = dados[i].data_termino;
+                    hora_termino = dados[i].hora_termino;
+                    console.log(data_inicio, hora_inicio, data_termino, hora_termino);
+                }
+                window.location.href = "ourocar/sedan.html";
+            } else {
+                console.log("Erro ao obter os dados do servidor");
+                
+            }
+        }
+    )
+    
 }
 

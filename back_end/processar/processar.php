@@ -20,34 +20,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hora_inicio = $_POST['horario_inicio'];
     $data_termino = $_POST['data_fim'];
     $hora_termino = $_POST['horario_fim'];
-    echo "<script>";
-    echo "var escolhaVeiculo = '" . $escolhaVeiculo . "';";
-    echo "var data_inicio = '" . $data_inicio . "';";
-    echo "var hora_inicio = '" . $hora_inicio . "';";
-    echo "var data_termino = '" . $data_termino . "';";
-    echo "var hora_termino = '" . $hora_termino . "';";
-    echo "</script>";
-    echo "<script src='/ourocar/back_end/processar/processarVeiculo.js'></script>";
-    header("Location: /ourocar/$escolhaVeiculo.html");
-    // // Prepara e executa a inserção no banco de dados
-    // $sql = $conn->prepare("INSERT INTO aluguel (data_inicio, hora_inicio, data_fim, hora_fim) VALUES (?, ?, ?, ?)");
 
-    // // Verifica se a preparação foi bem-sucedida
-    // if ($sql === FALSE) {
-    //     die("Erro ao preparar a consulta: " . $conn->error);
-    // }
+    // Prepara e executa a inserção no banco de dados
+    $sql = $conn->prepare("INSERT INTO aluguel (data_inicio, hora_inicio, data_fim, hora_fim) VALUES (?, ?, ?, ?)");
 
-    // // Associa os parâmetros e executa a consulta
-    // $sql->bind_param("ssss", $data_inicio, $hora_inicio, $data_termino, $hora_termino);
-    // if ($sql->execute() === TRUE) {
-    //     header("Location: /ourocar/$escolhaVeiculo.html");
-    //     exit();
-    // } else {
-    //     $message = "Erro ao cadastrar: ";
-    //     echo "Erro ao cadastrar: " . $sql->error;
-    // }
-    
-    // // Fecha a instrução e a conexão
-    // $conn->close();
+    // Verifica se a preparação foi bem-sucedida
+    if ($sql === FALSE) {
+        die("Erro ao preparar a consulta: " . $conn->error);
+    }
+
+    // Associa os parâmetros e executa a consulta
+    $sql->bind_param("ssss", $data_inicio, $hora_inicio, $data_termino, $hora_termino);
+    if ($sql->execute() === TRUE) {
+        // Consulta SQL para obter os dados dos usuários
+        $sqlConsult = "SELECT * FROM aluguel";
+        $result = $conn->query($sqlConsult);
+        if ($result === FALSE) {
+            die("Erro ao consultar: " . $conn->error);
+        }
+        // Verifica se há resultados e os converte para JSON
+        if ($result->num_rows > 0) {
+            $rows = array();
+            header('Content-Type: application/json');
+            while($row = $result->fetch_assoc()) {
+                $rows[] = $row;
+            }
+            echo json_encode($rows);
+        } else {
+            echo json_encode(array()); // Retorna um JSON vazio se não houver resultados
+        }
+        exit();
+    } else {
+        $message = "Erro ao cadastrar: ";
+        echo "Erro ao cadastrar: " . $sql->error;
+    }
+    // Fecha a instrução e a conexão
+    $conn->close();
 }
 ?>

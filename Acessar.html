@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Principal.css">
-    <script src="back_end/processar/processarVeiculo.js" async></script>
+    <script src="back_end/processar/processarVeiculo.js" async>
+        window.onload = function() {
+            processarVeiculo(); // Chama a função assim que a página é carregada
+        };
+    </script>
     <title>Locação de Veículos</title>
 </head>
 <body>
@@ -16,7 +20,7 @@
     <div class="container">
         <h2>Escolha um veículo para locação:</h2>
         <!-- <form method="post" onsubmit="return validarFormulario()"> -->
-        <form method="post">
+        <form action="" method="post">
             <label for="veiculo">Selecione o veículo:</label>
             <select id="veiculo" name="veiculo" required>
                 <option value="esportivo">Esportivo</option>
@@ -38,7 +42,7 @@
             <label for="horario_fim">Horário de Término:</label>
             <input type="time" id="horario_fim" name="horario_fim" required>
 
-            <button type="submit" id="submitBtn">Veículos</button>
+            <button type="submit" onclick="processarVeiculo()">Veículos</button>
         </form>
     </div>
     <footer>

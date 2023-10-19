@@ -1,0 +1,1 @@
+criar outro php em processar para ler o banco de dados e dps retornar em json para o js
