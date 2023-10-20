@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $hora_termino = $_POST['horario_fim'];
 
     // Prepara e executa a inserção no banco de dados
-    $sql = $conn->prepare("INSERT INTO aluguel (data_inicio, hora_inicio, data_fim, hora_fim) VALUES (?, ?, ?, ?)");
+    $sql = $conn->prepare("INSERT INTO aluguel (tipo_veiculo, data_inicio, hora_inicio, data_fim, hora_fim) VALUES (?, ?, ?, ?, ?)");
 
     // Verifica se a preparação foi bem-sucedida
     if ($sql === FALSE) {
@@ -30,25 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Associa os parâmetros e executa a consulta
-    $sql->bind_param("ssss", $data_inicio, $hora_inicio, $data_termino, $hora_termino);
+    $sql->bind_param("sssss", $escolhaVeiculo, $data_inicio, $hora_inicio, $data_termino, $hora_termino);
     if ($sql->execute() === TRUE) {
         // Consulta SQL para obter os dados dos usuários
-        $sqlConsult = "SELECT * FROM aluguel";
-        $result = $conn->query($sqlConsult);
-        if ($result === FALSE) {
-            die("Erro ao consultar: " . $conn->error);
-        }
-        // Verifica se há resultados e os converte para JSON
-        if ($result->num_rows > 0) {
-            $rows = array();
-            header('Content-Type: application/json');
-            while($row = $result->fetch_assoc()) {
-                $rows[] = $row;
-            }
-            echo json_encode($rows);
-        } else {
-            echo json_encode(array()); // Retorna um JSON vazio se não houver resultados
-        }
+        header("Location: /ourocar/$escolhaVeiculo.html");
         exit();
     } else {
         $message = "Erro ao cadastrar: ";
