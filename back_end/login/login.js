@@ -1,7 +1,7 @@
 var emailLogin = document.getElementById('email');
-var emailBanco;
+var emailBanco = [];
 var senhaLogin = document.getElementById('senha');
-var senhaBanco;
+var senhaBanco = [];
 var tamanho;
 
 function obterDadosDoBanco() {
@@ -14,30 +14,30 @@ function obterDadosDoBanco() {
         })
         .then(dados => {
             localStorage.setItem('dadosUsuario', JSON.stringify(dados));
-            console.log(dados);
             for (var i = 0; i < dados.length; i++) {
                 tamanho = dados.length;
-                emailBanco = dados[i].email;
-                senhaBanco = dados[i].senha;
-                console.log(emailBanco);
-                console.log(senhaBanco);
-                console.log(i);
+                emailBanco[i] = dados[i].email;
+                senhaBanco[i] = dados[i].senha;
+                console.log("email banco "+ i +": " + emailBanco[i]);
+                console.log("senha banco "+ i +": " + senhaBanco[i]);
             }
         }
     )
 }
 
 function validarLogin() {
-    if(emailBanco == emailLogin.value){
-        console.log('email correto');
-        if(senhaBanco == senhaLogin.value){
-            console.log('senha correta');
-            window.location.href = "/ourocar/Acessar.html";
+    for(var i = 0; i < tamanho; i++) {
+        if(emailBanco[i] == emailLogin.value){
+            console.log('email correto');
+            if(senhaBanco[i] == senhaLogin.value){
+                console.log('senha correta');
+                window.location.href = "/ourocar/back_end/login/alertLog.php";
+            }else{
+                console.log('senha incorreta');
+            }
         }else{
-            console.log('senha incorreta');
+            console.log('email incorreto');
         }
-    }else{
-        console.log('email incorreto');
     }
 }
 

@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aluguel` (
+  `tipo_veiculo` text DEFAULT NULL,
   `data_inicio` date DEFAULT NULL,
   `hora_inicio` text DEFAULT NULL,
   `data_fim` date DEFAULT NULL,
